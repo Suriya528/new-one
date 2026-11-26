@@ -1,0 +1,29 @@
+{
+  "name": "profit-whatif-backend",
+  "version": "1.0.0",
+  "description": "Profit What-If Simulator Backend API & Financial Engine",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc --noEmit && tsc -p tsconfig.build.json",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "seed": "tsx src/seed.ts",
+    "query": "tsx src/run-query.ts",
+    "test": "vitest run",
+    "verify": "tsx src/verify.ts"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.6.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.9.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.8"
+  }
+}

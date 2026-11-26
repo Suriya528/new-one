@@ -1,0 +1,663 @@
+{
+ "company": "Software company (US)",
+ "currencyNote": "money KPIs are in US dollars, thousands (unit usd_k) unless unit says usd (whole dollars)",
+ "fiscalYear": "FY2025-26",
+ "months": [
+  "2025-04",
+  "2025-05",
+  "2025-06",
+  "2025-07",
+  "2025-08",
+  "2025-09",
+  "2025-10",
+  "2025-11",
+  "2025-12",
+  "2026-01",
+  "2026-02",
+  "2026-03"
+ ],
+ "monthIndexNote": "month 1 = 2025-04. 'prior' = value of month 0 (March 2025), used by lag references",
+ "kpis": [
+  {
+   "id": "marketing_spend",
+   "label": "Marketing spend",
+   "kind": "input",
+   "unit": "usd_k",
+   "goodWhen": "down",
+   "fy": "sum",
+   "lever": true,
+   "prior": 88,
+   "actuals": [
+    93,
+    98,
+    93,
+    103,
+    108,
+    114,
+    124,
+    119,
+    98,
+    93,
+    103,
+    114
+   ]
+  },
+  {
+   "id": "cac",
+   "label": "Cost to acquire a subscriber",
+   "kind": "input",
+   "unit": "usd",
+   "goodWhen": "down",
+   "fy": "mean",
+   "lever": false,
+   "prior": 485,
+   "actuals": [
+    495,
+    500,
+    490,
+    505,
+    510,
+    515,
+    525,
+    520,
+    505,
+    500,
+    510,
+    515
+   ]
+  },
+  {
+   "id": "arpu",
+   "label": "Price per subscriber per month",
+   "kind": "input",
+   "unit": "usd",
+   "goodWhen": "up",
+   "fy": "mean",
+   "lever": true,
+   "prior": 125,
+   "actuals": [
+    125,
+    125,
+    125,
+    125,
+    125,
+    125,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130
+   ]
+  },
+  {
+   "id": "churn_pct",
+   "label": "Monthly churn",
+   "kind": "input",
+   "unit": "pct",
+   "goodWhen": "down",
+   "fy": "mean",
+   "lever": true,
+   "prior": 3.0,
+   "actuals": [
+    3.0,
+    3.1,
+    2.9,
+    3.0,
+    3.2,
+    3.1,
+    3.4,
+    3.3,
+    3.0,
+    2.9,
+    3.0,
+    3.1
+   ]
+  },
+  {
+   "id": "billable_heads",
+   "label": "Billable people",
+   "kind": "input",
+   "unit": "count",
+   "goodWhen": "neutral",
+   "fy": "last",
+   "lever": true,
+   "prior": 34,
+   "actuals": [
+    34,
+    34,
+    34,
+    35,
+    35,
+    35,
+    36,
+    36,
+    36,
+    36,
+    37,
+    37
+   ],
+   "integer": true
+  },
+  {
+   "id": "nonbillable_heads",
+   "label": "Non-billable people",
+   "kind": "input",
+   "unit": "count",
+   "goodWhen": "neutral",
+   "fy": "last",
+   "lever": true,
+   "prior": 25,
+   "actuals": [
+    25,
+    25,
+    25,
+    25,
+    26,
+    26,
+    26,
+    26,
+    26,
+    27,
+    27,
+    27
+   ],
+   "integer": true
+  },
+  {
+   "id": "utilization_pct",
+   "label": "Utilisation of billable people",
+   "kind": "input",
+   "unit": "pct",
+   "goodWhen": "up",
+   "fy": "mean",
+   "lever": true,
+   "prior": 70,
+   "actuals": [
+    70,
+    72,
+    73,
+    74,
+    72,
+    71,
+    73,
+    74,
+    72,
+    68,
+    66,
+    75
+   ],
+   "max": 100
+  },
+  {
+   "id": "rate_per_hour",
+   "label": "Project billing rate per hour",
+   "kind": "input",
+   "unit": "usd",
+   "goodWhen": "up",
+   "fy": "mean",
+   "lever": true,
+   "prior": 160,
+   "actuals": [
+    160,
+    160,
+    160,
+    160,
+    160,
+    160,
+    165,
+    165,
+    165,
+    165,
+    165,
+    165
+   ]
+  },
+  {
+   "id": "ctc_per_head",
+   "label": "Average salary cost per person per month",
+   "kind": "input",
+   "unit": "usd",
+   "goodWhen": "down",
+   "fy": "mean",
+   "lever": true,
+   "prior": 9500,
+   "actuals": [
+    9500,
+    9500,
+    9500,
+    9500,
+    9500,
+    9500,
+    9500,
+    9500,
+    9500,
+    9500,
+    9500,
+    9500
+   ],
+   "effectiveFromMonth": 7
+  },
+  {
+   "id": "hosting_per_sub",
+   "label": "Hosting cost per subscriber per month",
+   "kind": "input",
+   "unit": "usd",
+   "goodWhen": "down",
+   "fy": "mean",
+   "lever": false,
+   "prior": 14,
+   "actuals": [
+    14,
+    14,
+    14,
+    14.5,
+    14.5,
+    14.5,
+    15,
+    15,
+    15,
+    15.5,
+    15.5,
+    15.5
+   ]
+  },
+  {
+   "id": "new_subscribers",
+   "label": "New subscribers",
+   "unit": "count",
+   "goodWhen": "up",
+   "fy": "sum",
+   "op": "ratio",
+   "num": {
+    "kpi": "marketing_spend",
+    "lag": 1
+   },
+   "den": {
+    "kpi": "cac",
+    "lag": 1
+   },
+   "scale": 1000,
+   "kind": "formula"
+  },
+  {
+   "id": "churned_subscribers",
+   "label": "Churned subscribers",
+   "unit": "count",
+   "goodWhen": "down",
+   "fy": "sum",
+   "op": "product",
+   "factors": [
+    {
+     "kpi": "closing_subscribers",
+     "lag": 1
+    },
+    {
+     "kpi": "churn_pct"
+    }
+   ],
+   "scale": 0.01,
+   "kind": "formula"
+  },
+  {
+   "id": "closing_subscribers",
+   "label": "Subscribers at month end",
+   "unit": "count",
+   "goodWhen": "up",
+   "fy": "last",
+   "op": "sum",
+   "prior": 3000,
+   "inputs": [
+    {
+     "kpi": "closing_subscribers",
+     "lag": 1,
+     "sign": 1
+    },
+    {
+     "kpi": "new_subscribers",
+     "sign": 1
+    },
+    {
+     "kpi": "churned_subscribers",
+     "sign": -1
+    }
+   ],
+   "kind": "formula"
+  },
+  {
+   "id": "product_revenue",
+   "label": "Product revenue",
+   "unit": "usd_k",
+   "goodWhen": "up",
+   "fy": "sum",
+   "op": "product",
+   "factors": [
+    {
+     "kpi": "closing_subscribers"
+    },
+    {
+     "kpi": "arpu"
+    }
+   ],
+   "scale": 0.001,
+   "kind": "formula"
+  },
+  {
+   "id": "billable_hours",
+   "label": "Billable hours",
+   "unit": "count",
+   "goodWhen": "up",
+   "fy": "sum",
+   "op": "product",
+   "factors": [
+    {
+     "kpi": "billable_heads"
+    },
+    {
+     "kpi": "utilization_pct"
+    },
+    {
+     "const": 160
+    }
+   ],
+   "scale": 0.01,
+   "kind": "formula"
+  },
+  {
+   "id": "service_revenue",
+   "label": "Service revenue",
+   "unit": "usd_k",
+   "goodWhen": "up",
+   "fy": "sum",
+   "op": "product",
+   "factors": [
+    {
+     "kpi": "billable_hours"
+    },
+    {
+     "kpi": "rate_per_hour"
+    }
+   ],
+   "scale": 0.001,
+   "kind": "formula"
+  },
+  {
+   "id": "total_revenue",
+   "label": "Total revenue",
+   "unit": "usd_k",
+   "goodWhen": "up",
+   "fy": "sum",
+   "op": "sum",
+   "inputs": [
+    {
+     "kpi": "product_revenue",
+     "sign": 1
+    },
+    {
+     "kpi": "service_revenue",
+     "sign": 1
+    }
+   ],
+   "kind": "formula"
+  },
+  {
+   "id": "total_heads",
+   "label": "Total people",
+   "unit": "count",
+   "goodWhen": "neutral",
+   "fy": "last",
+   "op": "sum",
+   "inputs": [
+    {
+     "kpi": "billable_heads",
+     "sign": 1
+    },
+    {
+     "kpi": "nonbillable_heads",
+     "sign": 1
+    }
+   ],
+   "kind": "formula"
+  },
+  {
+   "id": "salaries",
+   "label": "Salaries (loaded)",
+   "unit": "usd_k",
+   "goodWhen": "down",
+   "fy": "sum",
+   "op": "product",
+   "factors": [
+    {
+     "kpi": "total_heads"
+    },
+    {
+     "kpi": "ctc_per_head"
+    },
+    {
+     "const": 1.2
+    }
+   ],
+   "scale": 0.001,
+   "kind": "formula"
+  },
+  {
+   "id": "hosting",
+   "label": "Hosting",
+   "unit": "usd_k",
+   "goodWhen": "down",
+   "fy": "sum",
+   "op": "product",
+   "factors": [
+    {
+     "kpi": "closing_subscribers"
+    },
+    {
+     "kpi": "hosting_per_sub"
+    }
+   ],
+   "scale": 0.001,
+   "kind": "formula"
+  },
+  {
+   "id": "gateway_fees",
+   "label": "Payment gateway fees",
+   "unit": "usd_k",
+   "goodWhen": "down",
+   "fy": "sum",
+   "op": "product",
+   "factors": [
+    {
+     "kpi": "product_revenue"
+    },
+    {
+     "const": 0.029
+    }
+   ],
+   "scale": 1,
+   "kind": "formula"
+  },
+  {
+   "id": "rent_utilities",
+   "label": "Rent & utilities",
+   "unit": "usd_k",
+   "goodWhen": "down",
+   "fy": "sum",
+   "op": "step",
+   "on": {
+    "kpi": "total_heads"
+   },
+   "inclusive": true,
+   "steps": [
+    {
+     "upTo": 50,
+     "value": 54
+    },
+    {
+     "upTo": 64,
+     "value": 68
+    },
+    {
+     "upTo": null,
+     "value": 97
+    }
+   ],
+   "kind": "formula"
+  },
+  {
+   "id": "total_expenses",
+   "label": "Total expenses",
+   "unit": "usd_k",
+   "goodWhen": "down",
+   "fy": "sum",
+   "op": "sum",
+   "inputs": [
+    {
+     "kpi": "salaries",
+     "sign": 1
+    },
+    {
+     "kpi": "marketing_spend",
+     "sign": 1
+    },
+    {
+     "kpi": "rent_utilities",
+     "sign": 1
+    },
+    {
+     "kpi": "hosting",
+     "sign": 1
+    },
+    {
+     "kpi": "gateway_fees",
+     "sign": 1
+    }
+   ],
+   "kind": "formula"
+  },
+  {
+   "id": "profit_before_tax",
+   "label": "Profit before tax",
+   "unit": "usd_k",
+   "goodWhen": "up",
+   "fy": "sum",
+   "op": "sum",
+   "inputs": [
+    {
+     "kpi": "total_revenue",
+     "sign": 1
+    },
+    {
+     "kpi": "total_expenses",
+     "sign": -1
+    }
+   ],
+   "kind": "formula"
+  },
+  {
+   "id": "tax",
+   "label": "Tax",
+   "unit": "usd_k",
+   "goodWhen": "down",
+   "fy": "sum",
+   "op": "ytd_tax",
+   "base": "profit_before_tax",
+   "rate": 0.25,
+   "kind": "formula"
+  },
+  {
+   "id": "net_profit",
+   "label": "Net profit",
+   "unit": "usd_k",
+   "goodWhen": "up",
+   "fy": "sum",
+   "op": "sum",
+   "inputs": [
+    {
+     "kpi": "profit_before_tax",
+     "sign": 1
+    },
+    {
+     "kpi": "tax",
+     "sign": -1
+    }
+   ],
+   "kind": "formula"
+  },
+  {
+   "id": "net_margin_pct",
+   "label": "Net margin",
+   "unit": "pct",
+   "goodWhen": "up",
+   "fy": "recompute",
+   "op": "ratio",
+   "num": {
+    "kpi": "net_profit"
+   },
+   "den": {
+    "kpi": "total_revenue"
+   },
+   "scale": 100,
+   "kind": "formula"
+  }
+ ],
+ "scenarioRules": {
+  "sliders": "A slider is a fractional change (0.05 = +5%) multiplied onto every month of an input KPI, from effectiveFromMonth (default 1) onwards",
+  "reactsTo": [
+   {
+    "source": "marketing_spend",
+    "target": "cac",
+    "elasticity": 0.35
+   },
+   {
+    "source": "arpu",
+    "target": "churn_pct",
+    "elasticity": 4
+   }
+  ],
+  "reactsToNote": "After sliders: target_month *= (source_scenario / source_actual) ** elasticity, per month",
+  "order": [
+   "sliders",
+   "reactsTo",
+   "integer rounding (half up)",
+   "max/min clamps (churn floor 0)",
+   "formulas, month by month"
+  ],
+  "lag": "A reference with lag n reads the same KPI n months earlier. Month 0 reads 'prior'",
+  "fyRule": {
+   "sum": "add 12 months",
+   "last": "value of month 12",
+   "mean": "simple average of 12 months",
+   "recompute": "apply the formula to the FY totals"
+  }
+ },
+ "guardrails": [
+  {
+   "id": "g_margin",
+   "label": "FY net margin at least 10%",
+   "kpi": "net_margin_pct",
+   "scope": "year",
+   "min": 10
+  },
+  {
+   "id": "g_pbt",
+   "label": "No month with a loss before tax",
+   "kpi": "profit_before_tax",
+   "scope": "every_month",
+   "min": 0
+  },
+  {
+   "id": "g_subs",
+   "label": "At least 3,900 subscribers at year end",
+   "kpi": "closing_subscribers",
+   "scope": "year",
+   "min": 3900
+  },
+  {
+   "id": "g_util",
+   "label": "Utilisation never above 85% (burnout policy)",
+   "kpi": "utilization_pct",
+   "scope": "every_month",
+   "max": 85
+  }
+ ]
+}

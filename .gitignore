@@ -1,0 +1,22 @@
+# Dependencies & builds (never commit per hackathon rules)
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+backend/dist/
+frontend/dist/
+
+# Local database & secrets
+backend/simulator.db
+backend/simulator.db-wal
+backend/simulator.db-shm
+.env
+*.log
+*.zip
+
+# Local Python venv & cloned hackathon dataset repo
+Lib/
+Scripts/
+etc/
+share/
+.vscode/
+repo-data/

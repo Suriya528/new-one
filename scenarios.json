@@ -1,0 +1,42 @@
+[
+  {
+    "name": "01. Baseline (All Levers Zero)",
+    "levers": {}
+  },
+  {
+    "name": "02. Golden Checkpoint (Mkt -20%, Price +8%, Salary +5%)",
+    "levers": { "marketing_spend": -0.20, "arpu": 0.08, "ctc_per_head": 0.05 }
+  },
+  {
+    "name": "03. Modest Price Optimization (+4% ARPU)",
+    "levers": { "arpu": 0.04 }
+  },
+  {
+    "name": "04. Aggressive Growth (+25% Marketing, +10% Billable Hiring)",
+    "levers": { "marketing_spend": 0.25, "billable_heads": 0.10 }
+  },
+  {
+    "name": "05. Burnout Risk (+20% Utilization -> Breaches 85% Cap)",
+    "levers": { "utilization_pct": 0.20 }
+  },
+  {
+    "name": "06. Price Shock (+25% ARPU -> Churn Elasticity Surge)",
+    "levers": { "arpu": 0.25 }
+  },
+  {
+    "name": "07. Office Expansion Jump (+5% Billable, +10% Non-Billable -> >64 Heads)",
+    "levers": { "billable_heads": 0.05, "nonbillable_heads": 0.10 }
+  },
+  {
+    "name": "08. Severe Downturn (-30% ARPU, -30% Rate, +25% Salary -> PBT Loss)",
+    "levers": { "arpu": -0.30, "rate_per_hour": -0.30, "ctc_per_head": 0.25 }
+  },
+  {
+    "name": "09. Balanced Profit Boost (+5% Price, +10% Marketing, +5% Rate, +5% Util)",
+    "levers": { "arpu": 0.05, "marketing_spend": 0.10, "rate_per_hour": 0.05, "utilization_pct": 0.05 }
+  },
+  {
+    "name": "10. Retention & Efficiency (-20% Churn, +10% Utilization, -10% Non-Billable)",
+    "levers": { "churn_pct": -0.20, "utilization_pct": 0.10, "nonbillable_heads": -0.10 }
+  }
+]

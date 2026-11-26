@@ -1,0 +1,15 @@
+{
+  "name": "profit-what-if-simulator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Philips CFO Hackathon — Profit What-If Simulator",
+  "scripts": {
+    "postinstall": "npm --prefix backend install --no-audit --no-fund && npm --prefix frontend install --no-audit --no-fund",
+    "seed": "npm --prefix backend run seed",
+    "dev": "node tools/dev.mjs",
+    "build": "npm --prefix backend run build && npm --prefix frontend run build",
+    "test": "npm --prefix backend test",
+    "query": "npm --prefix backend run query",
+    "verify": "npm --prefix backend run verify"
+  }
+}
